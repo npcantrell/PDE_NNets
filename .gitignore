@@ -1,0 +1,14 @@
+venv
+.DS_Store
+__pycache__
+*.pyc
+*.csv
+*.zip
+*.bak
+db.sqlite3
+.idea
+.vscode
+*.asv
+*.mp4
+*.avi
+*.npy
