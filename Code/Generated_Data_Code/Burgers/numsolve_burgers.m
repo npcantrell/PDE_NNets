@@ -21,8 +21,7 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
     u_left = 1;
     u_right = 0;
 
-    % Other Inital Conditions: 
-%     u0 = @(x) u_left - (u_left - u_right) .* heaviside(x);
+    % Other Inital Condition: 
 %     u0 = @(x) exp(-(2*(x)).^2);
 
     % Time and Space Sizes: 
