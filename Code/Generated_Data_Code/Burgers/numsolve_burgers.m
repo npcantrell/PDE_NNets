@@ -13,7 +13,7 @@ close
 % t_s < t < t_e
 
 
-u = solve_burgers(-1, 3, 100, 0, 3, 300, 0.02); 
+u = solve_burgers(-1, 3, 100, 0, 3, 200, 0.018); 
 
 
 function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
@@ -22,6 +22,7 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
     u_right = 0;
 
     % Other Inital Condition: 
+%     u0 = @(x) u_left - (u_left - u_right) .* heaviside(x);
 %     u0 = @(x) exp(-(2*(x)).^2);
 
     % Time and Space Sizes: 
@@ -70,14 +71,14 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
         
         mesh(x, tspan, u')
         xlabel('x'); ylabel('t'); zlabel('u(x,t)')
-
-
-        % Time stepping animation 
+        
+        
+        % 2-D Time stepping animation 
         for time=1:time_steps
             figure(2)
             p = plot(x,u(:,time+1));
             xlim([x_s, x_e])
-            yline([min(u, [], 'all')-0.5, max(u, [] ,'all')+0.5])
+            ylim([min(u, [], 'all')-0.5, max(u, [] ,'all')+0.5])
             grid on
             xlabel('x')
             ylabel('u(x,t)')
@@ -88,6 +89,15 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
                 break;
             end
         end
+        
+        % Exporting Data
+        s1.u = u; 
+        s1.x = x;
+        s1.t = tspan; 
+        
+        save('burgers_data.mat', '-struct','s1');
+        disp('Saved Data:');
+        whos('-file','burgers_data.mat')
     end
 end
 
