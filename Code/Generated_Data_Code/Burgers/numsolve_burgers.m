@@ -12,18 +12,39 @@ close
 % x_s < x < x_e
 % t_s < t < t_e
 
+% Gaussian IC:
+% ------------
+% nu = 0.1 
+% x grid_size = 100 
+% t steps = 500
+% -5 < x < 5 
+% 0 < t < 6
+% u_left = 0
+% u_right = 0 
 
-u = solve_burgers(-1, 3, 100, 0, 3, 200, 0.018); 
+
+% Slanted Wave IC:
+% -----------------
+% nu = 0.018
+% x grid_size = 100
+% t steps = 200
+% -1 < x < 3 
+% 0 < t < 3
+% u_left = 1
+% u_right = 0 
+
+
+u = solve_burgers(-5, 5, 200, 0, 6, 500, 0.1); 
 
 
 function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
     % Boundary Condtions:
-    u_left = 1;
+    u_left = 0;
     u_right = 0;
 
     % Other Inital Condition: 
 %     u0 = @(x) u_left - (u_left - u_right) .* heaviside(x);
-%     u0 = @(x) exp(-(2*(x)).^2);
+    u0 = @(x) exp(-(2*(x)).^2);
 
     % Time and Space Sizes: 
     grid_size = grid_sz; 
@@ -35,10 +56,12 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
     tspan = linspace(t_s, t_e, time_steps+1);
 
     % Initalize Solution and apply IC & BC: 
-    u = zeros(grid_size+1, time_steps+1); 
-    u0 = IC(x);
+    u = zeros(grid_size+1, time_steps+1);
+    % uncomment for slanted wave IC and remove (x) in line 64 
+%     u0 = IC(x);
     
-    u(:,1) = u0;
+    % add u0(x) is using @(x) function IC 
+    u(:,1) = u0(x);
     u(1,1) = u_left; 
     u(end, 1) = u_right;
     
