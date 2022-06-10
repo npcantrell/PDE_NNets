@@ -55,7 +55,7 @@ def convert_to_dictonary(dict):
             dict[key] = add_todict(dict[key])
     return dict
 
-data = sio.loadmat('/content/drive/MyDrive/PDE_NNets/Data/NSE/NSE_SingleGauss_Data.mat', struct_as_record=False, squeeze_me=True)
+data = sio.loadmat('../../Data/Generated_Data/NSE/NSE_SingleGauss_Data.mat', struct_as_record=False, squeeze_me=True)
 data_dict = convert_to_dictonary(data)
 
 true_w = data_dict['omega'];
