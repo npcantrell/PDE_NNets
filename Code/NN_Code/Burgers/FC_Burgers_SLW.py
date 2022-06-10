@@ -433,7 +433,7 @@ if __name__ == '__main__':
     ax.set_ylabel('t', fontsize=12)
     ax.set_zlabel('u(x,t)', fontsize=12)
     ax.set_zticks(np.linspace(0, 1, 6))
-    ax.set_title("Predicted Solution For Grid Size: 10000\nError: " + str(np.round(0.1*errorfull_grid, 4)) + "\n", fontsize=14)
+    ax.set_title("Predicted Solution For Grid Size: 10000\nError: " + str(np.round(errorfull_grid, 4)) + "\n", fontsize=14)
 
 
     # Predicted solution for 4000

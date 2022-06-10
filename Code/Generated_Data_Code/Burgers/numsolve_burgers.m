@@ -25,7 +25,7 @@ close
 
 % Slanted Wave IC:
 % -----------------
-% nu = 0.018
+% nu = 0.1
 % x grid_size = 200
 % t steps = 200
 % -2 < x < 6 
@@ -34,7 +34,7 @@ close
 % u_right = 0 
 
 
-u = solve_burgers(-2, 6, 200, 0, 1, 200, 0.018); 
+u = solve_burgers(-2, 6, 200, 0, 1, 200, 0.1); 
 
 
 function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
