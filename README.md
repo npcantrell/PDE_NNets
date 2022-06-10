@@ -2,7 +2,7 @@
 
 ## Authors: 
 
-Ryan Kramlich & Nick Cantrell
+Ryan Kramlich & Nicholas Cantrell
 
 <hr>
 
