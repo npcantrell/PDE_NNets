@@ -1,4 +1,4 @@
-# Investigating Neural Networks to Solve Parametric Partial Differential Equations
+# Investigating Neural Network Architectures to Solve Parametric Partial Differential Equations
 
 ### Authors: 
 
