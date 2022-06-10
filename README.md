@@ -6,8 +6,6 @@ Ryan Kramlich & Nick Cantrell
 
 <hr>
 
-<hr>
-
 ### Description: 
 
 This is the final project as part of the AMATH 563 - Deep Learning Theory and Application course at the University of Washington. 
