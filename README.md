@@ -4,6 +4,10 @@
 
 Ryan Kramlich & Nicholas Cantrell
 
+<p align="center">
+ <img src="./Misc./NSE.gif" width=160 height=160/>
+</p>
+
 <hr>
 
 ## Description: 
