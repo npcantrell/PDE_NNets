@@ -12,7 +12,7 @@ Ryan Kramlich & Nicholas Cantrell
 
 ## Description: 
 
-This is the repository for the final project as part of the AMATH 563 - Deep Learning Theory and Application course at the University of Washington. 
+This is the repository for the final project as part of the AMATH 563 -Inferring Structure of Complex Systems course at the University of Washington. 
 
 ## Abstract: 
 
