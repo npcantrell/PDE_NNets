@@ -1,6 +1,6 @@
 
 clc
-clear
+clear all
 close
 
 % Solving Burgers Equation in 1D: 
@@ -15,9 +15,9 @@ close
 % Gaussian IC:
 % ------------
 % nu = 0.1 
-% x grid_size = 100 
-% t steps = 500
-% -5 < x < 5 
+% x grid_size = 200
+% t steps = 200
+% -10 < x < 10
 % 0 < t < 6
 % u_left = 0
 % u_right = 0 
@@ -26,42 +26,43 @@ close
 % Slanted Wave IC:
 % -----------------
 % nu = 0.018
-% x grid_size = 100
+% x grid_size = 200
 % t steps = 200
-% -1 < x < 3 
-% 0 < t < 3
+% -2 < x < 6 
+% 0 < t < 1
 % u_left = 1
 % u_right = 0 
 
 
-u = solve_burgers(-5, 5, 200, 0, 6, 500, 0.1); 
+u = solve_burgers(-2, 6, 200, 0, 1, 200, 0.018); 
 
 
 function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
     % Boundary Condtions:
-    u_left = 0;
+    u_left = 1;
     u_right = 0;
 
     % Other Inital Condition: 
 %     u0 = @(x) u_left - (u_left - u_right) .* heaviside(x);
-    u0 = @(x) exp(-(2*(x)).^2);
+%     u0 = @(x) exp(-(2*(x)).^2);
 
     % Time and Space Sizes: 
     grid_size = grid_sz; 
-    delta_x = (x_e - x_s) / grid_size; 
+    delta_x = (x_e - x_s) / grid_size 
     x = linspace(x_s, x_e, grid_size+1);
 
     time_steps = time_stps; 
-    delta_t = (t_e - t_s) / time_steps;
+    delta_t = (t_e - t_s) / time_steps
+%     delta_t = 0.001;
     tspan = linspace(t_s, t_e, time_steps+1);
 
     % Initalize Solution and apply IC & BC: 
     u = zeros(grid_size+1, time_steps+1);
     % uncomment for slanted wave IC and remove (x) in line 64 
-%     u0 = IC(x);
+    u0 = IC(x);
     
     % add u0(x) is using @(x) function IC 
-    u(:,1) = u0(x);
+    u(:,1) = u0;
     u(1,1) = u_left; 
     u(end, 1) = u_right;
     
@@ -118,9 +119,9 @@ function u = solve_burgers(x_s, x_e, grid_sz, t_s, t_e, time_stps, viscosity)
         s1.x = x;
         s1.t = tspan; 
         
-        save('burgers_data.mat', '-struct','s1');
+        save('FC_slantedwave_data01.mat', '-struct','s1');
         disp('Saved Data:');
-        whos('-file','burgers_data.mat')
+        whos('-file','FC_slantedwave_data01.mat')
     end
 end
 
