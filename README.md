@@ -12,7 +12,7 @@ Ryan Kramlich & Nicholas Cantrell
 
 ## Description: 
 
-This is the repository for the final research project as part of the AMATH 563 - Inferring Structure of Complex Systems course at the University of Washington. 
+This is the repository for the final research project as part of the AMATH 563 - Inferring Structure of Complex Systems course at the University of Washington. The final paper of the work is available upon request. 
 
 ## Abstract: 
 
